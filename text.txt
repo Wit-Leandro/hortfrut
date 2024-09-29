@@ -1,0 +1,18 @@
+#acai_recheio{
+  padding: 10px;
+
+  justify-content: center;
+  justify-items: center;
+  border-radius: 20px;
+}
+#acai_recheio h4 {
+  font-size: medium;
+  color: #370246;
+  margin-left: 90px;
+}
+#acai_recheio p {
+  margin-left: 105px;
+}
+#acai_recheio div {
+  margin-left: 30px;
+}

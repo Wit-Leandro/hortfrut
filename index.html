@@ -1,0 +1,195 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="style.css" />
+    <link rel="icon" href="imagens/lettuce_favicon_16x16.png">
+    <script src="https://cdn.jsdelivr.net/npm/qrcode/build/qrcode.min.js"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Josefin+Sans:ital,wght@0,100..700;1,100..700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <div class="container">    
+        <header id="oct_header">
+            <div class="cabecalho">
+              <div class="imgcabeca">
+                <img class="imgdcab" src="imagens/alfac.webp" alt="logo-tio-chico" />
+              </div>
+              <div class="enderecocabeca">
+                <h3 class="cabecatitulo">hortifrut</h3>
+                <p class="cabecaendereco">Av. Tarumã</p>
+                <p class="cabecacidade">Tarumã - SP <span id="local" class="tooltip">&#128205</span></p>
+                <p class="cabecatelefone">Telefone: (xx) x xxxx-xxxx</p>
+              </div>
+              <div class="canto_tela">
+                <div id="mostrar_carrinho">
+                  <span id="contCarrinho"></span>
+                  <span id="logCarrinho">&#128722</span>
+                </div>
+              </div>
+            </div>
+    
+          </header> 
+
+        <div id="adicionais">
+            
+            <p id="resadicao" class="res_css"></p>
+            <div class="btn_escolha">
+                <button class="btns" id="btn_valores">Avançar!</button>
+            </div>
+            <div>
+              <h2>Valor da Compra R$<span id="totalGeral"></span></h2>
+            </div>
+            <h3>LISTA DA SEMANA</h3>
+
+            <div class="cx_itens">
+                <input class="bloquear" type="text" id="item1" value="Escarola" readonly><p>Escarola R$5,00</p>
+                <input type="number" id="total1" value="0" readonly>
+                <input type="number" id="quantidade1" value="0" readonly>
+                <button onclick="alterarQuantidade(1, 'quantidade1', 5.00, 'total1')">&#10133</button>
+                <button onclick="alterarQuantidade(-1, 'quantidade1', 5.00, 'total1')">&#10134</button>
+            </div>
+            <div class="cx_itens">
+                <input class="bloquear" type="text" id="item2" value="Alface Americana" readonly><p>Alface Americana R$6,00</p>
+                <input type="number" id="total2" value="0" readonly>
+                <input type="number" id="quantidade2" value="0" readonly>
+                <button onclick="alterarQuantidade(1, 'quantidade2', 6, 'total2')">&#10133</button>
+                <button onclick="alterarQuantidade(-1, 'quantidade2', 6, 'total2')">&#10134</button>
+            </div>
+            <div class="cx_itens">
+                <input class="bloquear" type="text" id="item3" value="Alface Crespa" readonly><p>Alface Crespa R$5,00</p>
+                <input type="number" id="total3" value="0" readonly>
+                <input type="number" id="quantidade3" value="0" readonly>
+                <button onclick="alterarQuantidade(1, 'quantidade3', 5, 'total3')">&#10133</button>
+                <button onclick="alterarQuantidade(-1, 'quantidade3', 5, 'total3')">&#10134</button>
+            </div>
+            <div class="cx_itens">
+                <input class="bloquear" type="text" id="item4" value="Salsa Maço" readonly><p>Salsa Maço R$4,00</p>
+                <input type="number" id="total4" value="0" readonly>
+                <input type="number" id="quantidade4" value="0" readonly>
+                <button onclick="alterarQuantidade(1, 'quantidade4', 4, 'total4')">&#10133</button>
+                <button onclick="alterarQuantidade(-1, 'quantidade4', 4, 'total4')">&#10134</button>
+            </div>
+            <div class="cx_itens">
+                <input class="bloquear" type="text" id="item5" value="Mix Salada" readonly><p>Mix Salada R$15,00</p>
+                <input type="number" id="total5" value="0" readonly>
+                <input type="number" id="quantidade5" value="0" readonly>
+                <button onclick="alterarQuantidade(1, 'quantidade5', 15, 'total5')">&#10133</button>
+                <button onclick="alterarQuantidade(-1, 'quantidade5', 15, 'total5')">&#10134</button>
+            </div>
+            <div class="cx_itens">
+                <input class="bloquear" type="text" id="item6" value="Queijo" readonly><p>Queijo R$26,00</p>
+                <input type="number" id="total6" value="0" readonly>
+                <input type="number" id="quantidade6" value="0" readonly>
+                <button onclick="alterarQuantidade(1, 'quantidade6', 26, 'total6')">&#10133</button>
+                <button onclick="alterarQuantidade(-1, 'quantidade6', 26, 'total6')">&#10134</button>
+            </div>
+            <div class="cx_itens">
+                <input class="bloquear" type="text" id="item7" value="Suco de Uva" readonly><p>Suco de Uva R$27,00</p>
+                <input type="number" id="total7" value="0" readonly>
+                <input type="number" id="quantidade7" value="0" readonly>
+                <button onclick="alterarQuantidade(1, 'quantidade7', 27, 'total7')">&#10133</button>
+                <button onclick="alterarQuantidade(-1, 'quantidade7', 27, 'total7')">&#10134</button>
+            </div>
+        </div>
+
+        <div id="final">
+            <h2>Resumo do Pedido</h2>
+            <h5>LEMBRE DE NOS ENVIAR O PEDIDO PELO WHATSS-APP</h5>
+            <button class="btns" id="imprimir">Ir para pagamento</button>
+            
+            <div class="seus_dados">
+              <h2>Seus dados:</h2>
+              <ul>
+                <li id="res_nome"></li>
+                <li id="res_end"></li>
+                <li id="res_end2"></li>
+                <li id="res_regiao"></li>
+              </ul>
+            </div>
+            <h2>Seu carrinho:</h2>
+    
+            <div id="carrinho"></div>
+            <h5>CANCELAR PEDIDO? CLIQUE NO BOTÃO ABAIXO!</h5>
+            <button class="btns" id="home_page">Cancelar Pedido &#10060</button>
+        </div>
+
+
+        <div class="pagamento" id="pagamento">
+                <h1>Forma de Pagamento</h1>
+                <h4 id="valor_pagamentos"></h4>
+                <ul>
+                  <li>Escolha entre PIX - CARTÃO - DINHEIRO</li>
+                  <li>Seu Whats-app será aberto com o pedido</li>
+                  <li>Volte para o site para copiar seu Qrcode </li>
+                </ul>
+        
+                <div class="grid_pgto" id="pgto">
+                  <button id="btn_pix">PIX</button>
+                  <!--
+                  <button id="btn_cartao">CARTÃO</button>
+                  <button id="btn_dinheiro">DINHEIRO</button>-->
+                </div>
+        
+                <div class="res_pix" id="res_pix">
+                  <h3>PIX selecionado &#128242</h3>
+                  <h5 onclick="copiarCnpj()" class="cliqueaqui">SUA EMPRESA AQUI chave Pix: CNPJ:XXXXXXXXXXXXXX</h5>
+                  <!--<button class="btns" id="copiar_chave">Copiar CNPJ!</button>-->
+        
+                  <canvas id="qrcode"></canvas>
+                  <div class="res_qrcode"><textarea id="pixCopyPaste" rows="1" cols="33" readonly></textarea></div>
+                  <div class="res_btn_pix">
+                    <button class="btns" id="env_pix">Enviar Whatsapp <img class="img_whats" src="imagens/whatsapp.png" alt="img-whats"></button>
+                    <button class="btns" onclick="copyToClipboard()">Copiar Qrcode</button>
+                  </div>
+                  <p class="alerta_pgto">&#9888 ENVIAR COMPROVANTE DO PIX VIA WHATSAPP &#9888</p>
+        
+                
+                </div>
+        
+                <div class="res_cartao" id="res_cartao">
+                  <h3>CARTÃO selecionado &#128179</h3>
+                  <p>hortifrut Agradece a preferencia! &#129309</p>
+                  <p>Deus Abençoe! &#128591</p>
+                  <button class="btns" id="env_cartao" >Enviar - Whats-app</button>
+                </div>
+        
+                <div class="res_dinheiro" id="res_dinheiro">
+                  <h3>DINHEIRO selecionado &#128181</h3>
+                  <label for="troco">Informe se precisa de troco ou não! &#129300</label>
+                  <input type="text" name="troco" id="troco" placeholder="Exemplo: Troco para 100">
+                  
+                  <input class="btns" id="env_dinheiro" type="submit" value="Enviar - Whats-app">
+                  <p>hortifrut Agradece a preferencia! &#129309</p>
+                  <p>Deus Abençoe! &#128591</p>
+                </div>
+        </div>
+
+        <div class="sujestao" id="mensagem">
+                    <h3>Sujestão?</h3>
+                    <h5>Para a montagem desse item em específico?</h5>
+                    <p>"Ex: coloque o recheio apenas em cima"</p>
+                    <p>Se não houver pode deixar em branco</p>
+                    <textarea name="campo" id="campo" cols="35" rows="5"></textarea>
+                    <input value="AVANÇAR!!" class="btns" type="submit" id="btn_sujestao" title="Ex: coloque o recheio apenas em cima">
+                    <span id="contador">0/30 caracteres &#9993</span>
+        </div>
+
+        <div id="esconde_carrinho">
+            <p>Adicione seu Pedido ao carrinho!</p>
+            <button id="btn_carrinho" class="btns" onclick="adicionarCarrinho()">Adicionar &#128722</button>
+            <p id="carrinho_atualizado"></p>    
+        </div>
+    
+        
+        
+    </div>
+    <script src="script.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/1.4.1/html2canvas.min.js"></script>
+
+</body>
+</html>
+
