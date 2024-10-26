@@ -524,7 +524,7 @@ function informarDataHora() {
       "\nPagamento via Pix" +
       "" +
       mensagemCarrinho;
-    var numeroWhatsApp = "5518997051082";
+    var numeroWhatsApp = "5518999999999";
     var mensagemWhatsApp = encodeURIComponent(
       "Olá!, esse é meu pedido \u{1F609} \n" + detalhesPedido + "\n\n\n\n\nSeu Codigo para pagamento\n\n" + dic[6] + '\n\n\nClique em enviar - \u{1F53D}\n'
     );
