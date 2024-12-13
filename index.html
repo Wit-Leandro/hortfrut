@@ -1,195 +1,1152 @@
 <!DOCTYPE html>
 <html lang="pt-br">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Tio Chico</title>
     <link rel="stylesheet" href="style.css" />
-    <link rel="icon" href="imagens/lettuce_favicon_16x16.png">
+    <link rel="icon" href="imagens/favicon_16x16.ico">
     <script src="https://cdn.jsdelivr.net/npm/qrcode/build/qrcode.min.js"></script>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Josefin+Sans:ital,wght@0,100..700;1,100..700&display=swap" rel="stylesheet">
-</head>
-<body>
-    <div class="container">    
-        <header id="oct_header">
-            <div class="cabecalho">
-              <div class="imgcabeca">
-                <img class="imgdcab" src="imagens/alfac.webp" alt="logo-tio-chico" />
-              </div>
-              <div class="enderecocabeca">
-                <h3 class="cabecatitulo">hortifrut</h3>
-                <p class="cabecaendereco">Av. Tarumã</p>
-                <p class="cabecacidade">Tarumã - SP <span id="local" class="tooltip">&#128205</span></p>
-                <p class="cabecatelefone">Telefone: (xx) x xxxx-xxxx</p>
-              </div>
-              <div class="canto_tela">
-                <div id="mostrar_carrinho">
-                  <span id="contCarrinho"></span>
-                  <span id="logCarrinho">&#128722</span>
-                </div>
-              </div>
-            </div>
-    
-          </header> 
+  </head>
 
-        <div id="adicionais">
-            
-            <p id="resadicao" class="res_css"></p>
-            <div class="btn_escolha">
-                <button class="btns" id="btn_valores">Avançar!</button>
+  <body>
+    <div class="container">
+      <header id="oct_header">
+        <div class="cabecalho">
+          <div class="imgcabeca">
+            <img class="imgdcab" src="imagens/logo2.png" alt="logo-tio-chico" />
+          </div>
+          <div class="enderecocabeca">
+            <h3 class="cabecatitulo">Tio Chico - Sorvetes</h3>
+            <p class="cabecaendereco">Av. Tarumã, 594</p>
+            <p class="cabecacidade">Tarumã - SP - 19820-000 <span id="local" class="tooltip">&#128205</span></p>
+            <p class="cabecatelefone">Telefone: (18) 9 9677-2619</p>
+          </div>
+          <div class="canto_tela">
+            <div id="mostrar_carrinho">
+              <span id="contCarrinho"></span>
+              <span id="logCarrinho" class="count_carrinho">&#128722</span>
             </div>
-            <div>
-              <h2>Valor da Compra R$<span id="totalGeral"></span></h2>
+            <div id="mostrar_login">
+              <span id="contLogin"></span>
+              <span id="logLogin" class="count_login">&#129309</span>
             </div>
-            <h3>LISTA DA SEMANA</h3>
+          </div>
+        </div>
+      </header>
 
-            <div class="cx_itens">
-                <input class="bloquear" type="text" id="item1" value="Escarola" readonly><p>Escarola R$5,00</p>
-                <input type="number" id="total1" value="0" readonly>
-                <input type="number" id="quantidade1" value="0" readonly>
-                <button onclick="alterarQuantidade(1, 'quantidade1', 5.00, 'total1')">&#10133</button>
-                <button onclick="alterarQuantidade(-1, 'quantidade1', 5.00, 'total1')">&#10134</button>
-            </div>
-            <div class="cx_itens">
-                <input class="bloquear" type="text" id="item2" value="Alface Americana" readonly><p>Alface Americana R$6,00</p>
-                <input type="number" id="total2" value="0" readonly>
-                <input type="number" id="quantidade2" value="0" readonly>
-                <button onclick="alterarQuantidade(1, 'quantidade2', 6, 'total2')">&#10133</button>
-                <button onclick="alterarQuantidade(-1, 'quantidade2', 6, 'total2')">&#10134</button>
-            </div>
-            <div class="cx_itens">
-                <input class="bloquear" type="text" id="item3" value="Alface Crespa" readonly><p>Alface Crespa R$5,00</p>
-                <input type="number" id="total3" value="0" readonly>
-                <input type="number" id="quantidade3" value="0" readonly>
-                <button onclick="alterarQuantidade(1, 'quantidade3', 5, 'total3')">&#10133</button>
-                <button onclick="alterarQuantidade(-1, 'quantidade3', 5, 'total3')">&#10134</button>
-            </div>
-            <div class="cx_itens">
-                <input class="bloquear" type="text" id="item4" value="Salsa Maço" readonly><p>Salsa Maço R$4,00</p>
-                <input type="number" id="total4" value="0" readonly>
-                <input type="number" id="quantidade4" value="0" readonly>
-                <button onclick="alterarQuantidade(1, 'quantidade4', 4, 'total4')">&#10133</button>
-                <button onclick="alterarQuantidade(-1, 'quantidade4', 4, 'total4')">&#10134</button>
-            </div>
-            <div class="cx_itens">
-                <input class="bloquear" type="text" id="item5" value="Mix Salada" readonly><p>Mix Salada R$15,00</p>
-                <input type="number" id="total5" value="0" readonly>
-                <input type="number" id="quantidade5" value="0" readonly>
-                <button onclick="alterarQuantidade(1, 'quantidade5', 15, 'total5')">&#10133</button>
-                <button onclick="alterarQuantidade(-1, 'quantidade5', 15, 'total5')">&#10134</button>
-            </div>
-            <div class="cx_itens">
-                <input class="bloquear" type="text" id="item6" value="Queijo" readonly><p>Queijo R$26,00</p>
-                <input type="number" id="total6" value="0" readonly>
-                <input type="number" id="quantidade6" value="0" readonly>
-                <button onclick="alterarQuantidade(1, 'quantidade6', 26, 'total6')">&#10133</button>
-                <button onclick="alterarQuantidade(-1, 'quantidade6', 26, 'total6')">&#10134</button>
-            </div>
-            <div class="cx_itens">
-                <input class="bloquear" type="text" id="item7" value="Suco de Uva" readonly><p>Suco de Uva R$27,00</p>
-                <input type="number" id="total7" value="0" readonly>
-                <input type="number" id="quantidade7" value="0" readonly>
-                <button onclick="alterarQuantidade(1, 'quantidade7', 27, 'total7')">&#10133</button>
-                <button onclick="alterarQuantidade(-1, 'quantidade7', 27, 'total7')">&#10134</button>
-            </div>
+      <div id="oct_hora" class="horas">
+        <span id="reshora"></span>
+        <p id="hdia"></p>
+        <span id="reshora2"></span>
+        <span id="resdia"></span>
+        <span id="resdia2"></span>
+      </div>
+
+      <div id="ocutar">
+        <div class="tab-container2">
+          <button class="tab2" onclick="openCategory('evt','acai_tradicional')">Açai - Sem Recheio</button>
+          <button class="tab2" onclick="openCategory('evt','acai_recheio')">Açai - Com Recheio</button>
         </div>
 
-        <div id="final">
-            <h2>Resumo do Pedido</h2>
-            <h5>LEMBRE DE NOS ENVIAR O PEDIDO PELO WHATSS-APP</h5>
-            <button class="btns" id="imprimir">Ir para pagamento</button>
-            
-            <div class="seus_dados">
-              <h2>Seus dados:</h2>
-              <ul>
-                <li id="res_nome"></li>
-                <li id="res_end"></li>
-                <li id="res_end2"></li>
-                <li id="res_regiao"></li>
-              </ul>
-            </div>
-            <h2>Seu carrinho:</h2>
-    
-            <div id="carrinho"></div>
-            <h5>CANCELAR PEDIDO? CLIQUE NO BOTÃO ABAIXO!</h5>
-            <button class="btns" id="home_page">Cancelar Pedido &#10060</button>
+        <div class="tab-container">
+
+          <button class="tab" onclick="openCategory('evt','salada')">Salada Frutas</button>
+          <button class="tab" onclick="openCategory('evt','shake')">Milk Shake</button>
+
         </div>
 
 
-        <div class="pagamento" id="pagamento">
-                <h1>Forma de Pagamento</h1>
-                <h4 id="valor_pagamentos"></h4>
-                <ul>
-                  <li>Escolha entre PIX - CARTÃO - DINHEIRO</li>
-                  <li>Seu Whats-app será aberto com o pedido</li>
-                  <li>Volte para o site para copiar seu Qrcode </li>
-                </ul>
-        
-                <div class="grid_pgto" id="pgto">
-                  <button id="btn_pix">PIX</button>
-                  <!--
-                  <button id="btn_cartao">CARTÃO</button>
-                  <button id="btn_dinheiro">DINHEIRO</button>-->
-                </div>
-        
-                <div class="res_pix" id="res_pix">
-                  <h3>PIX selecionado &#128242</h3>
-                  <h5 onclick="copiarCnpj()" class="cliqueaqui">SUA EMPRESA AQUI chave Pix: CNPJ:XXXXXXXXXXXXXX</h5>
-                  <!--<button class="btns" id="copiar_chave">Copiar CNPJ!</button>-->
-        
-                  <canvas id="qrcode"></canvas>
-                  <div class="res_qrcode"><textarea id="pixCopyPaste" rows="1" cols="33" readonly></textarea></div>
-                  <div class="res_btn_pix">
-                    <button class="btns" id="env_pix">Enviar Whatsapp <img class="img_whats" src="imagens/whatsapp.png" alt="img-whats"></button>
-                    <button class="btns" onclick="copyToClipboard()">Copiar Qrcode</button>
-                  </div>
-                  <p class="alerta_pgto">&#9888 ENVIAR COMPROVANTE DO PIX VIA WHATSAPP &#9888</p>
-        
-                
-                </div>
-        
-                <div class="res_cartao" id="res_cartao">
-                  <h3>CARTÃO selecionado &#128179</h3>
-                  <p>hortifrut Agradece a preferencia! &#129309</p>
-                  <p>Deus Abençoe! &#128591</p>
-                  <button class="btns" id="env_cartao" >Enviar - Whats-app</button>
-                </div>
-        
-                <div class="res_dinheiro" id="res_dinheiro">
-                  <h3>DINHEIRO selecionado &#128181</h3>
-                  <label for="troco">Informe se precisa de troco ou não! &#129300</label>
-                  <input type="text" name="troco" id="troco" placeholder="Exemplo: Troco para 100">
-                  
-                  <input class="btns" id="env_dinheiro" type="submit" value="Enviar - Whats-app">
-                  <p>hortifrut Agradece a preferencia! &#129309</p>
-                  <p>Deus Abençoe! &#128591</p>
-                </div>
+
+        <div class="bloquear" id="welcome">
+          <p>&#127848 Tio-Chico &#127846</p>
         </div>
 
-        <div class="sujestao" id="mensagem">
-                    <h3>Sujestão?</h3>
-                    <h5>Para a montagem desse item em específico?</h5>
-                    <p>"Ex: coloque o recheio apenas em cima"</p>
-                    <p>Se não houver pode deixar em branco</p>
-                    <textarea name="campo" id="campo" cols="35" rows="5"></textarea>
-                    <input value="AVANÇAR!!" class="btns" type="submit" id="btn_sujestao" title="Ex: coloque o recheio apenas em cima">
-                    <span id="contador">0/30 caracteres &#9993</span>
+        <div id="usuario">
+          <div id="msgcadastro">
+          </div>
+          <div id="login" class="category">
+            <form id="formulario">
+              <input
+                type="text"
+                id="nome"
+                placeholder="Seu Nome..."
+                required
+              /><br />
+              <input
+                type="text"
+                id="endereco"
+                placeholder="Seu Endereço"
+                required
+              /><br />
+              <input
+                type="text"
+                id="ncasa"
+                placeholder="Numero da casa"
+                required
+              /><br />
+              <input
+                type="text"
+                id="fone"
+                placeholder="(99)98888-8888"
+                pattern="\(\d{2}\)\d{5}-\d{4}"
+                title="(99)98888-8888"
+                maxlength="15"
+                required
+              /><br />
+              <input
+                class="btns"
+                type="submit"
+                id="enviar_dados"
+                value="Enviar"
+              />
+            </form>
+          </div>
         </div>
 
-        <div id="esconde_carrinho">
-            <p>Adicione seu Pedido ao carrinho!</p>
-            <button id="btn_carrinho" class="btns" onclick="adicionarCarrinho()">Adicionar &#128722</button>
-            <p id="carrinho_atualizado"></p>    
+
+
+        <div class="category" id="salada">
+          <h4 class="estilo_titulo">SALADA DE FRUTAS</h4>
+          <p class="estilo_paragrafo">Selecione o copo desejado!</p>
+          <select id="meu_select_salada" onchange="exibirSalada()" class="select_salada">
+  
+          <option value="300ml">COPO 300ml R$ 9,00</option>
+          <option value="400ml">COPO 400ml R$ 12,00</option>
+          <option value="500ml">COPO 500ml R$ 14,00</option>
+          <option value="700ml">COPO 700ml R$ 18,00</option>  
+        </select>
+
+        <button class="btns" id="btn_salada">Montar Copo!</button>  
+        <div id="imagem_salada">
+          <h2 class="estilo_titulo">Frutas Disponiveis</h2>
+          <p class="estilo_paragrafo">MORANGO</p>
+          <p class="estilo_paragrafo">BANANA</p>
+          <p class="estilo_paragrafo">KIWI</p>
+          <p class="estilo_paragrafo">ABACAXI</p>
+          <p class="estilo_paragrafo">MANGA</p>
+          <p class="estilo_paragrafo">UVA VERDE</p>
+          <p class="estilo_paragrafo">UVA ROXA</p>
+
         </div>
-    
+
+        </div>
+
+        <div class="category" id="shake">
+          <h4 class="estilo_titulo">MILK SHAKE</h4>
+          <p class="estilo_paragrafo">Selecione o copo desejado!</p>
+          <select id="meu_select_shake" onchange="exibirShake()" class="select_shake">
+  
+          <option value="T300ml">Tradicional 300ml R$ 10,00</option>
+          <option value="T400ml">Tradicional 400ml R$ 12,00</option>
+          <option value="T500ml">Tradicional 500ml R$ 14,00</option>
+          <option value="T700ml">Tradicional 700ml R$ 18,00</option>
+
+          <option value="S300ml">Especial 300ml R$ 12,00</option>
+          <option value="S400ml">Especial 400ml R$ 14,00</option>
+          <option value="S500ml">Especial 500ml R$ 16,00</option>
+          <option value="S700ml">Especial 700ml R$ 20,00</option>
+
+        </select>
+
+        <button class="btns" id="btn_shake">ir para sabor!</button>  
+
+        <div id="shake_tradicional">
+          <h2 class="estilo_titulo">Sabores tradicional</h2>
+          <p class="estilo_paragrafo">ABACAXI</p>
+          <p class="estilo_paragrafo">ABACAXI AO VINHO</p>
+          <p class="estilo_paragrafo">MARACUJA</p>
+          <p class="estilo_paragrafo">CÉU AZUL</p>
+          <p class="estilo_paragrafo">CHOCOMENTA</p>
+          <p class="estilo_paragrafo">SENSAÇÃO</p>
+          <p class="estilo_paragrafo">COCO BRANCO</p>
+          <p class="estilo_paragrafo">FLOCOS</p>
+          <p class="estilo_paragrafo">FERRERO ROCHE</p>
+          <p class="estilo_paragrafo">LACTA</p>
+          <p class="estilo_paragrafo">LEITE CONDENSADO</p>
+          <p class="estilo_paragrafo">LEITE NINHO</p>
+          <p class="estilo_paragrafo">MORANGO</p>
+          <p class="estilo_paragrafo">OVOMALTINE</p>
+          <p class="estilo_paragrafo">PASSAS AO RUM</p>
+          <p class="estilo_paragrafo">TORTA DE LIMÃO</p>
+          <p class="estilo_paragrafo">UVA</p>
+
+          <h2 class="estilo_titulo">Sabores Especiais</h2>
+          <p class="estilo_paragrafo">AÇAI TRADICIONAL</p>
+          <p class="estilo_paragrafo">AÇAI COM LEITE NINHO</p>
+          <p class="estilo_paragrafo">AÇAI COM NUTELLA</p>
+          <p class="estilo_paragrafo">CHOCOLATE COM NUTELLA</p>
+          <p class="estilo_paragrafo">CUPUAÇU</p>
+          <p class="estilo_paragrafo">KINDEROVO TRUNFADO</p>
+          <p class="estilo_paragrafo">LEITE NINHO TRUNFADO</p>
+          <p class="estilo_paragrafo">PRATA OREO</p>
+          <p class="estilo_paragrafo">BANOFFE</p>
+        </div>
+
+
+        </div>
+
+        <div class="category" id="acai_tradicional">
+          <h4 class="estilo_titulo">AÇAI TRADICIONAL (Sem Recheio)</h4>
+          <p class="estilo_paragrafo">Escolha abaixo</p>
+          <div class="tab-container3">
+            <button class="sub_tab" onclick="openSubCategory('evt','trad_copo')">COPOS</button>
+            <button class="sub_tab" onclick="openSubCategory('evt','trad_marmita')">MARMITAS</button>
+            <button class="sub_tab" onclick="openSubCategory('evt','trad_pote')">POTES</button>
+          </div>
+
+          <div id="trad_copo" class="sub_category">
+            <p class="estilo_paragrafo">Selecione o copo desejado!</p>
+            <select
+              id="meu_select_trad_copo"
+              onchange="exibirTradCopos()"
+              class="select_trad_copo"
+            >
+              <option value="300ml">300ml R$ 9,00</option>
+              <option value="400ml">400ml R$ 12,00</option>
+              <option value="500ml">500ml R$ 15,00</option>
+              <option value="700ml">700ml R$ 24,00</option>
+            </select>
+            <button class="btns" id="btn_trad_copo">Quero esse copo!</button>
+            <div id="imagem_trad_copo">
+              <img src="imagens/tradcopo300ml.png" alt="tradcopo_açai" />
+            </div>
+          </div>
+
+          <div id="trad_marmita" class="sub_category">
+            <p class="estilo_paragrafo">Selecione a marmita desejado!</p>
+            <select
+              id="meu_select_trad_marmita"
+              onchange="exibirTradMarmitas()"
+              class="select_trad_marmita"
+            >
+              <option value="500ml">500ml R$ 16,00</option>
+              <option value="750ml">750ml R$ 24,00</option>
+              <option value="1200ml">1200ml R$ 34,00</option>
+            </select>
+            <button class="btns" id="btn_trad_marmita">Quero essa marmita!</button>
+            <div id="imagem_trad_marmita">
+              <img src="imagens/tradmarmita500ml.jpg" alt="trad_marmita_açai" />
+            </div>
+          </div>
+
+          <div id="trad_pote" class="sub_category">
+            <p class="estilo_paragrafo">Selecione o pote desejado!</p>
+            <select
+              id="meu_select_trad_pote"
+              onchange="exibirTradpotes()"
+              class="select_trad_pote"
+            >
+              <option value="900ml">900ml R$ 26,00</option>
+              <option value="2 Litros">2 Litros R$ 40,00</option>
+              <option value="5 Litros">5 Litros R$ 90,00</option>
+              <option value="10 Litros">10 Litros R$ 160,00</option>
+            </select>
+            <button class="btns" id="btn_trad_pote">Quero essa pote!</button>
+            <div id="imagem_trad_pote">
+              <img src="imagens/tradpote500ml.jpg" alt="trad_pote_açai" />
+            </div>
+          </div>
+
+
+        </div>
+
+        <div class="category" id="acai_recheio">
+          <h4 class="estilo_titulo">AÇAI - (Com Recheio)</h4>
+          <div class="tab-container3">
+            <button class="sub_tab" onclick="openSubCategory('evt', 'copos')">Copos</button>
+            <button class="sub_tab" onclick="openSubCategory('evt', 'marmitas')">Marmitas</button>
+          </div>
+
+          <div id="copos" class="sub_category">
+            <p class="estilo_paragrafo">Escolha Abaixo e clique no Botão 'MONTAR'!!</p>
+            <select
+              id="meu_select_copo"
+              onchange="exibirCopos()"
+              class="select_copo"
+            >
+              <option value="300ml">300ml R$ 13,00</option>
+              <option value="400ml">400ml R$ 16,00</option>
+              <option value="500ml">500ml R$ 18,00</option>
+              <option value="700ml">700ml R$ 28,00</option>
+            </select>
+            <button class="btns" id="btn_copo">MONTAR!!</button>
+            <div id="imagem_copo">
+              <img src="imagens/copo300ml.jpg" alt="copo_açai" />
+            </div>
+          </div>
+  
+          <div id="marmitas" class="sub_category">
+            <p  class="estilo_paragrafo">Escolha Abaixo e clique no Botão 'MONTAR'!!</p>
+            <select
+              id="meu_select_marmita"
+              onchange="exibirMarmitas()"
+              class="select_marmita"
+            >
+              <option value="500ml">500ml R$ 20,00</option>
+              <option value="750ml">750ml R$ 30,00</option>
+              <option value="1200ml">1200ml R$ 40,00</option>
+            </select>
+            <button class="btns" id="btn_marmita">MONTAR!!</button>
+            <div id="imagem_marmita">
+              <img src="imagens/marmita500ml.jpg" alt="marmita_açai" />
+            </div>
+          </div>
+        </div>
+
+      </div>
+
+      <div id="esconde_carrinho">
+        <p class="estilo_paragrafo">Adicione seu Pedido ao carrinho!</p>
+        <button id="btn_carrinho" class="btns" onclick="adicionarCarrinho()">Adicionar &#128722</button>
+        <p id="carrinho_atualizado"></p>
+
+      </div>
+      
+      <div class="grid_botoes">
+
+        <div id="esconde_p">
+          <p class="estilo_paragrafo">Continuar Comprando? ou Finalizar Pedido? </p>
+        </div>
+        <div id="esconde_finalizar_carrinho">
+          <button class="btns_especial" id="finalizar_carrinho">&#9989-Finalizar Carrinho e Pagamento. AQUI...!</button>
+        </div>
+        <div id="esconde_comprar_mais">
+          <button class="btns_especial" id="btncomprarmais">&#128159-Continue Comprando e Monte outro Açai. AQUI...!</button>         
+        </div>
+      </div>
+
+
+      <div id="escolha_regiao" style="display: none;">
+        <h2 class="estilo_paragrafo">Região</h2>
+        <h5 class="estilo_titulo">Informe sua sua região:</h5>
+
+        <div class="inpt_regiao">
+          <button class="btns_regioes" id="btn_regiao" onclick="verificarRegiao()">ENVIAR e CONTINUAR</button>
+
+          <div class="iptn_div">
+            <input type="checkbox" id="taruma" class="regiao" value="Tarumã" />          
+            <label for="checkbox80">Dentro de Tarumã</label>
+            <span>(taxa de R$2,00 isento R$20,00)</span>
+          </div>
+
+          <br />
+
+          <div class="iptn_div">
+            <input type="checkbox" id="america" class="regiao" value="Usina Nova America" />
+            <label for="checkbox81">Usina Nova America</label>
+            <span>(taxa de R$10,00 isento R$150,00)</span>
+          </div>
+
+          <br />
+
+          <div class="iptn_div">
+            <input type="checkbox" id="bonita" class="regiao" value="Usina Agua Bonita" />
+            <label for="checkbox82">Usina Agua Bonita</label>
+            <span>(taxa de R$5,00 isento R$50,00)</span>
+          </div>
+
+          <br />
+
+          <div class="iptn_div">
+            <input type="checkbox" id="pioneiro" class="regiao" value="Posto Pioneiro" />
+            <label for="checkbox83">Posto Pioneiro</label>
+            <span>(taxa de R$5,00 isento R$50,00)</span>
+          </div>
+
+          <br />
+
+          <div class="iptn_div">
+            <input type="checkbox" id="chico" class="regiao" value="Retirar no Tio-Chico" />
+            <label for="checkbox84">Vou Retirar no Tio-Chico</label>
+          </div>
+
+          <br />
+
+          <span id="regiao_mensagem" >--Por favor, Selecione uma das opções acima!!--</span>
+
+          
+          
+        </div>
         
+      </div>
+
+      <div id="adicao">
+        <div class="btn_s_n">
+          <button class="btns_adicionar" id="btn_compra_add">Comprar adicional por R$3,00!</button>
+        </div>
+      </div>
+
+      <div id="adicionais">
+        <p id="resadicao" class="estilo_paragrafo"></p>
+        <div class="btn_escolha">
+          <button class="btns" id="btn_valores">Avançar!</button>
+          <br>
+        </div>
+        <div class="pesquisa">
+          <input type="text" id="search-input" placeholder="Buscar adicional na pagina...">
+          <button class="btns" onclick="highlightText()">Localizar</button>
+        </div>
+
+        <h3 class="estilo_titulo">FRUTAS</h3>
+        <div class="cx_itens">
+          <input type="text" id="item1" value="Morango" readonly>
+          <input type="number" id="quantidade1" value="0" readonly>
+          <button onclick="alterarQuantidade(1, 'quantidade1')">&#10133</button>
+          <button onclick="alterarQuantidade(-1, 'quantidade1')">&#10134</button>
+        </div>
+        <div class="cx_itens">
+          <input type="text" id="item2" value="Banana" readonly>
+          <input type="number" id="quantidade2" value="0" readonly>
+          <button onclick="alterarQuantidade(1, 'quantidade2')">&#10133</button>
+          <button onclick="alterarQuantidade(-1, 'quantidade2')">&#10134</button>
+        </div>
+        <div class="cx_itens">
+          <input type="text" id="item3" value="Kiwi" readonly>
+          <input type="number" id="quantidade3" value="0" readonly>
+          <button onclick="alterarQuantidade(1, 'quantidade3')">&#10133</button>
+          <button onclick="alterarQuantidade(-1, 'quantidade3')">&#10134</button>
+        </div>
+        <div class="cx_itens">
+          <input type="text" id="item4" value="Abacaxi" readonly>
+          <input type="number" id="quantidade4" value="0" readonly>
+          <button onclick="alterarQuantidade(1, 'quantidade4')">&#10133</button>
+          <button onclick="alterarQuantidade(-1, 'quantidade4')">&#10134</button>
+        </div>
+        <div class="cx_itens">
+          <input type="text" id="item5" value="Manga" readonly>
+          <input type="number" id="quantidade5" value="0" readonly>
+          <button onclick="alterarQuantidade(1, 'quantidade5')">&#10133</button>
+          <button onclick="alterarQuantidade(-1, 'quantidade5')">&#10134</button>
+        </div>
+        <div class="cx_itens">
+          <input type="text" id="item6" value="Uva Verde" readonly>
+          <input type="number" id="quantidade6" value="0" readonly>
+          <button onclick="alterarQuantidade(1, 'quantidade6')">&#10133</button>
+          <button onclick="alterarQuantidade(-1, 'quantidade6')">&#10134</button>
+        </div>        
+        <div class="cx_itens">
+          <input type="text" id="item7" value="Uva Roxa" readonly>
+          <input type="number" id="quantidade7" value="0" readonly>
+          <button onclick="alterarQuantidade(1, 'quantidade7')">&#10133</button>
+          <button onclick="alterarQuantidade(-1, 'quantidade7')">&#10134</button>
+        </div>  
+
+        <h3 class="estilo_titulo">CALDAS</h3>
+        <div class="cx_itens">
+          <input type="text" id="item8" value="Leite Condensado" readonly>
+          <input type="number" id="quantidade8" value="0" readonly>
+          <button onclick="alterarQuantidade(1, 'quantidade8')">&#10133</button>
+          <button onclick="alterarQuantidade(-1, 'quantidade8')">&#10134</button>
+        </div>
+        <div class="cx_itens">
+          <input type="text" id="item9" value="Cr. Nutella" readonly>
+          <input type="number" id="quantidade9" value="0" readonly>
+          <button onclick="alterarQuantidade(1, 'quantidade9')">&#10133</button>
+          <button onclick="alterarQuantidade(-1, 'quantidade9')">&#10134</button>
+        </div>
+        <div class="cx_itens">
+          <input type="text" id="item10" value="Cr. Leite Ninho" readonly>
+          <input type="number" id="quantidade10" value="0" readonly>
+          <button onclick="alterarQuantidade(1, 'quantidade10')">&#10133</button>
+          <button onclick="alterarQuantidade(-1, 'quantidade10')">&#10134</button>
+        </div>
+        <div class="cx_itens">
+          <input type="text" id="item11" value="Cr. Morango" readonly>
+          <input type="number" id="quantidade11" value="0" readonly>
+          <button onclick="alterarQuantidade(1, 'quantidade11')">&#10133</button>
+          <button onclick="alterarQuantidade(-1, 'quantidade11')">&#10134</button>
+        </div>
+        <div class="cx_itens">
+          <input type="text" id="item12" value="Cr. Bombom" readonly>
+          <input type="number" id="quantidade12" value="0" readonly>
+          <button onclick="alterarQuantidade(1, 'quantidade12')">&#10133</button>
+          <button onclick="alterarQuantidade(-1, 'quantidade12')">&#10134</button>
+        </div>
+        <div class="cx_itens">
+          <input type="text" id="item13" value="Cr. Chocobis" readonly>
+          <input type="number" id="quantidade13" value="0" readonly>
+          <button onclick="alterarQuantidade(1, 'quantidade13')">&#10133</button>
+          <button onclick="alterarQuantidade(-1, 'quantidade13')">&#10134</button>
+        </div>        
+        <div class="cx_itens">
+          <input type="text" id="item14" value="Cr. Paçoca" readonly>
+          <input type="number" id="quantidade14" value="0" readonly>
+          <button onclick="alterarQuantidade(1, 'quantidade14')">&#10133</button>
+          <button onclick="alterarQuantidade(-1, 'quantidade14')">&#10134</button>
+        </div>
+        <div class="cx_itens">
+          <input type="text" id="item15" value="Cr. Ovo Maltine" readonly>
+          <input type="number" id="quantidade15" value="0" readonly>
+          <button onclick="alterarQuantidade(1, 'quantidade15')">&#10133</button>
+          <button onclick="alterarQuantidade(-1, 'quantidade15')">&#10134</button>
+        </div>
+
+        <h3 class="estilo_titulo">COMPLEMENTOS</h3>
+        <div class="cx_itens">
+          <input type="text" id="item16" value="Confete" readonly>
+          <input type="number" id="quantidade16" value="0" readonly>
+          <button onclick="alterarQuantidade(1, 'quantidade16')">&#10133</button>
+          <button onclick="alterarQuantidade(-1, 'quantidade16')">&#10134</button>
+        </div>
+        <div class="cx_itens">
+          <input type="text" id="item17" value="Mini ChocoBall" readonly>
+          <input type="number" id="quantidade17" value="0" readonly>
+          <button onclick="alterarQuantidade(1, 'quantidade17')">&#10133</button>
+          <button onclick="alterarQuantidade(-1, 'quantidade17')">&#10134</button>
+        </div>
+        <div class="cx_itens">
+          <input type="text" id="item18" value="Power Ball" readonly>
+          <input type="number" id="quantidade18" value="0" readonly>
+          <button onclick="alterarQuantidade(1, 'quantidade18')">&#10133</button>
+          <button onclick="alterarQuantidade(-1, 'quantidade18')">&#10134</button>
+        </div>
+        <div class="cx_itens">
+          <input type="text" id="item19" value="Sucrilhos" readonly>
+          <input type="number" id="quantidade19" value="0" readonly>
+          <button onclick="alterarQuantidade(1, 'quantidade19')">&#10133</button>
+          <button onclick="alterarQuantidade(-1, 'quantidade19')">&#10134</button>
+        </div>
+        <div class="cx_itens">
+          <input type="text" id="item20" value="Leite em Pó" readonly>
+          <input type="number" id="quantidade20" value="0" readonly>
+          <button onclick="alterarQuantidade(1, 'quantidade20')">&#10133</button>
+          <button onclick="alterarQuantidade(-1, 'quantidade20')">&#10134</button>
+        </div>
+        <div class="cx_itens">
+          <input type="text" id="item21" value="Ouro Branco" readonly>
+          <input type="number" id="quantidade21" value="0" readonly>
+          <button onclick="alterarQuantidade(1, 'quantidade21')">&#10133</button>
+          <button onclick="alterarQuantidade(-1, 'quantidade21')">&#10134</button>
+        </div>        
+        <div class="cx_itens">
+          <input type="text" id="item22" value="Amendoin" readonly>
+          <input type="number" id="quantidade22" value="0" readonly>
+          <button onclick="alterarQuantidade(1, 'quantidade22')">&#10133</button>
+          <button onclick="alterarQuantidade(-1, 'quantidade22')">&#10134</button>
+        </div>
+        <div class="cx_itens">
+          <input type="text" id="item23" value="Farofa de Paçoca" readonly>
+          <input type="number" id="quantidade23" value="0" readonly>
+          <button onclick="alterarQuantidade(1, 'quantidade23')">&#10133</button>
+          <button onclick="alterarQuantidade(-1, 'quantidade23')">&#10134</button>
+        </div>    
+        <div class="cx_itens">
+          <input type="text" id="item24" value="Sonho de Valsa" readonly>
+          <input type="number" id="quantidade24" value="0" readonly>
+          <button onclick="alterarQuantidade(1, 'quantidade24')">&#10133</button>
+          <button onclick="alterarQuantidade(-1, 'quantidade24')">&#10134</button>
+        </div>
+        <div id="bloquear" class="cx_itens">
+          <input type="text" id="item25" value="Baton Branco" readonly>
+          <input type="number" id="quantidade25" value="0" readonly>
+          <button onclick="alterarQuantidade(1, 'quantidade25')">&#10133</button>
+          <button onclick="alterarQuantidade(-1, 'quantidade25')">&#10134</button>
+        </div>
+        <div class="cx_itens">
+          <input type="text" id="item26" value="Granola" readonly>
+          <input type="number" id="quantidade26" value="0" readonly>
+          <button onclick="alterarQuantidade(1, 'quantidade26')">&#10133</button>
+          <button onclick="alterarQuantidade(-1, 'quantidade26')">&#10134</button>
+        </div>
+        <div id="bloquear"class="cx_itens">
+          <input type="text" id="item27" value="Baton ao Leite" readonly>
+          <input type="number" id="quantidade27" value="0" readonly>
+          <button onclick="alterarQuantidade(1, 'quantidade27')">&#10133</button>
+          <button onclick="alterarQuantidade(-1, 'quantidade27')">&#10134</button>
+        </div>
+        <div class="cx_itens">
+          <input type="text" id="item28" value="Bis" readonly>
+          <input type="number" id="quantidade28" value="0" readonly>
+          <button onclick="alterarQuantidade(1, 'quantidade28')">&#10133</button>
+          <button onclick="alterarQuantidade(-1, 'quantidade28')">&#10134</button>
+        </div>
+        <div class="cx_itens">
+          <input type="text" id="item29" value="Paçoca Chocolate" readonly>
+          <input type="number" id="quantidade29" value="0" readonly>
+          <button onclick="alterarQuantidade(1, 'quantidade29')">&#10133</button>
+          <button onclick="alterarQuantidade(-1, 'quantidade29')">&#10134</button>
+        </div>        
+        <div class="cx_itens">
+          <input type="text" id="item30" value="Paçoca Choc. Branco" readonly>
+          <input type="number" id="quantidade30" value="0" readonly>
+          <button onclick="alterarQuantidade(1, 'quantidade30')">&#10133</button>
+          <button onclick="alterarQuantidade(-1, 'quantidade30')">&#10134</button>
+        </div>
+        <div class="cx_itens">
+          <input type="text" id="item31" value="Ovo Maltine" readonly>
+          <input type="number" id="quantidade31" value="0" readonly>
+          <button onclick="alterarQuantidade(1, 'quantidade31')">&#10133</button>
+          <button onclick="alterarQuantidade(-1, 'quantidade31')">&#10134</button>
+        </div>  
+        <div class="cx_itens">
+          <input type="text" id="item32" value="Canudos" readonly>
+          <input type="number" id="quantidade32" value="0" readonly>
+          <button onclick="alterarQuantidade(1, 'quantidade32')">&#10133</button>
+          <button onclick="alterarQuantidade(-1, 'quantidade32')">&#10134</button>
+        </div>
+        <div class="cx_itens">
+          <input type="text" id="item33" value="Mashmallows" readonly>
+          <input type="number" id="quantidade33" value="0" readonly>
+          <button onclick="alterarQuantidade(1, 'quantidade33')">&#10133</button>
+          <button onclick="alterarQuantidade(-1, 'quantidade33')">&#10134</button>
+        </div>        
+        <div class="cx_itens">
+          <input type="text" id="item34" value="Gotas de Chocolate" readonly>
+          <input type="number" id="quantidade34" value="0" readonly>
+          <button onclick="alterarQuantidade(1, 'quantidade34')">&#10133</button>
+          <button onclick="alterarQuantidade(-1, 'quantidade34')">&#10134</button>
+        </div>
+        <div class="cx_itens">
+          <input type="text" id="item35" value="KitKat" readonly>
+          <input type="number" id="quantidade35" value="0" readonly>
+          <button onclick="alterarQuantidade(1, 'quantidade35')">&#10133</button>
+          <button onclick="alterarQuantidade(-1, 'quantidade35')">&#10134</button>
+        </div>
+        <div class="cx_itens">
+          <input type="text" id="item36" value="Prestígio" readonly>
+          <input type="number" id="quantidade36" value="0" readonly>
+          <button onclick="alterarQuantidade(1, 'quantidade36')">&#10133</button>
+          <button onclick="alterarQuantidade(-1, 'quantidade36')">&#10134</button>
+        </div>  
+        <div class="cx_itens" id="bloquear">
+          <input type="text" id="item37" value="Suflair" readonly>
+          <input type="number" id="quantidade37" value="0" readonly>
+          <button onclick="alterarQuantidade(1, 'quantidade37')">&#10133</button>
+          <button onclick="alterarQuantidade(-1, 'quantidade37')">&#10134</button>
+        </div> 
+      </div>
+
+      <div class="sabor_trad" id="sabor_trad">
+        <p class="estilo_paragrafo">LIMITE DE 2 SABORES</p>
+        <button class="btns" id="btn_escolha_shake">Avançar!</button>
+        <h2 class="estilo_titulo">Sabores</h2>
+        <div class="cx_add_shake">
+          
+          <input type="checkbox" id="checkbox300" class="checkbox" value="Sabor: Abacaxi"/>
+          <label for="checkbox300" id="check_grid_300" class="check300">Abacaxi</label>
+          <br/>
+          <input type="checkbox" id="checkbox301" class="checkbox" value="Sabor: Abacaxi ao vinho"/>
+          <label for="checkbox301" id="check_grid_301" class="check301">Abacaxi ao vinho</label>
+          <!--
+          <br/>
+          <input type="checkbox" id="checkbox302" class="checkbox" value="Sabor: Brownie" />
+          <label for="checkbox302" id="check_grid_302" class="check302">Brownie</label>-->
+          <br/>
+          <input type="checkbox" id="checkbox303" class="checkbox" value="Sabor: Maracuja"/>
+          <label for="checkbox303" id="check_grid_303" class="check303">Maracuja</label>
+          <br/>
+          <input type="checkbox" id="checkbox304" class="checkbox" value="Sabor: Ceu Azul"/>
+          <label for="checkbox304" id="check_grid_304" class="check304">Céu Azul</label>
+          <!--
+          <br/>
+          <input type="checkbox" id="checkbox305" class="checkbox" value="Sabor: Chocolate"/>
+          <label for="checkbox305" id="check_grid_305" class="check305">Chocolate</label>-->
+          <br/>
+          <input type="checkbox" id="checkbox306" class="checkbox" value="Sabor: Chocomenta"/>
+          <label for="checkbox306" id="check_grid_306" class="check306">Chocomenta</label>
+
+          <br/>
+          <input type="checkbox" id="checkbox307" class="checkbox" value="Sabor: Sensação"/>
+          <label for="checkbox307" id="check_grid_307" class="check307">Sensação</label>
+          <br/>
+          <input type="checkbox" id="checkbox308" class="checkbox" value="Sabor: Coco Branco" />
+          <label for="checkbox308" id="check_grid_308" class="check308">Coco Branco</label>
+          <br/>
+          <input type="checkbox" id="checkbox309" class="checkbox" value="Sabor: Flocos"/>
+          <label for="checkbox309" id="check_grid_309" class="check309">Flocos</label>
+          <br/>
+          <input type="checkbox" id="checkbox310" class="checkbox" value="Sabor: Ferrero Roche"/>
+          <label for="checkbox310" id="check_grid_310" class="check310">Ferrero Roche</label>
+          <br/>
+          <input type="checkbox" id="checkbox311" class="checkbox" value="Sabor: Lacta"/>
+          <label for="checkbox311" id="check_grid_311" class="check311">Lacta</label>
+          <br/>
+          <input type="checkbox" id="checkbox312" class="checkbox" value="Sabor: Leite condensado"/>
+          <label for="checkbox312" id="check_grid_312" class="check312">Leite condensado</label>
+          <br/>
+          <input type="checkbox" id="checkbox313" class="checkbox" value="Sabor: Leite Ninho"/>
+          <label for="checkbox313" id="check_grid_313" class="check313">Leite Ninho</label>
+          <br/>
+          <input type="checkbox" id="checkbox314" class="checkbox" value="Sabor: Morango" />
+          <label for="checkbox314" id="check_grid_314" class="check314">Morango</label>
+          <br/>
+          <input type="checkbox" id="checkbox315" class="checkbox" value="Sabor: Ovo Maltine">
+          <label for="checkbox315" id="check_grid_315" class="check315">Ovo Maltine</label>
+          <br/>
+          <input type="checkbox" id="checkbox316" class="checkbox" value="Sabor: Passas ao Rum"/>
+          <label for="checkbox316" id="check_grid_316" class="check316">Passas ao Rum</label>
+          <br/>
+          <input type="checkbox" id="checkbox317" class="checkbox" value="Sabor: Torta de Limão"/>
+          <label for="checkbox317" id="check_grid_317" class="check317">Torta de Limão</label>
+          <br/>
+          <input type="checkbox" id="checkbox318" class="checkbox" value="Sabor: Uva"/>
+          <label for="checkbox318" id="check_grid_318" class="check318">Uva</label>
+
+      </div>
+
+      </div>
+
+      <div class="sabor_especial" id="sabor_especial">
+        <p class="estilo_paragrafo">LIMITE DE 2 SABORES</p>
+        <button class="btns" id="btn_escolha_especial">Avançar!</button>
+        <h2 class="estilo_titulo">Sabores</h2>
+        <div class="cx_add_especial">
+          
+          <input type="checkbox" id="checkbox600" class="checkbox" value="Sabor: Açai Tradicional"/>
+          <label for="checkbox600" id="check_grid_600" class="check600">Açai Tradicional</label>
+          <br/>
+          <input type="checkbox" id="checkbox601" class="checkbox" value="Sabor: Açai com Leite Ninho"/>
+          <label for="checkbox601" id="check_grid_601" class="check601">Açai com Leite Ninho</label>
+          <br/>
+          <input type="checkbox" id="checkbox602" class="checkbox" value="Sabor: Açai com Nutella" />
+          <label for="checkbox602" id="check_grid_602" class="check602">Açai com Nutella</label>
+          <br/>
+          <input type="checkbox" id="checkbox603" class="checkbox" value="Sabor: Chocolate com Nutella"/>
+          <label for="checkbox603" id="check_grid_603" class="check603">Chocolate com Nutella</label>
+          <br/>
+          <input type="checkbox" id="checkbox604" class="checkbox" value="Sabor: Cupuaçu"/>
+          <label for="checkbox604" id="check_grid_604" class="check604">Cupuaçu</label>
+          <br/>
+          <input type="checkbox" id="checkbox605" class="checkbox" value="Sabor: KinderOvo Trunfado"/>
+          <label for="checkbox605" id="check_grid_605" class="check605">KinderOvo Trunfado</label>
+          <br/>
+          <input type="checkbox" id="checkbox606" class="checkbox" value="Sabor: Leite Ninho Trunfado"/>
+          <label for="checkbox606" id="check_grid_606" class="check606">Leite Ninho Trunfado</label>
+
+          <br/>
+          <input type="checkbox" id="checkbox607" class="checkbox" value="Sabor: Prata Oereo"/>
+          <label for="checkbox607" id="check_grid_607" class="check607">Prata Oereo</label>
+          <br/>
+          <input type="checkbox" id="checkbox608" class="checkbox" value="Sabor: Banoffe" />
+          <label for="checkbox608" id="check_grid_608" class="check608">Banoffe</label>
+          
+
+      </div>
+
+      </div>
+
+      <div id="coberturas">
+        <p class="estilo_paragrafo">LIMITE DE 2 COBERTURAS</p>
+        <button class="btns" id="btn_escolha_cobertura">Avançar!</button>
+        <h2 class="estilo_titulo">Coberturas</h2>
+        <div class="cx_add_cobertura">
+          
+          <input type="checkbox" id="checkbox400" class="checkbox" value="Cobertura:Caramelo"/>
+          <label for="checkbox400" id="check_grid_400" class="check400">Caramelo</label>
+          <br/>
+          <input type="checkbox" id="checkbox401" class="checkbox" value="Cobertura:Goiaba"/>
+          <label for="checkbox401" id="check_grid_401" class="check401">Goiaba</label>
+          <br/>
+          <input type="checkbox" id="checkbox402" class="checkbox" value="Cobertura:Chocolate" />
+          <label for="checkbox402" id="check_grid_402" class="check402">Chocolate</label>
+          <br/>
+          <input type="checkbox" id="checkbox403" class="checkbox" value="Cobertura:Maracuja"/>
+          <label for="checkbox403" id="check_grid_403" class="check403">Maracuja</label>
+          <br/>
+          <input type="checkbox" id="checkbox404" class="checkbox" value="Cobertura:Frutas Vermelhas"/>
+          <label for="checkbox404" id="check_grid_404" class="check404">Frutas Vermelhas</label>
+          <br/>
+          <input type="checkbox" id="checkbox405" class="checkbox" value="Cobertura:Brigadeiro"/>
+          <label for="checkbox405" id="check_grid_405" class="check405">Brigadeiro</label>
+          <br/>
+          <input type="checkbox" id="checkbox406" class="checkbox" value="Cobertura:Morango"/>
+          <label for="checkbox406" id="check_grid_406" class="check406">Morango</label>
+
+          <br/>
+          <input type="checkbox" id="checkbox407" class="checkbox" value="Cobertura:Leite_condensado"/>
+          <label for="checkbox407" id="check_grid_407" class="check407">Leite_condensado</label>
+          <br/>
+          <input type="checkbox" id="checkbox408" class="checkbox" value="Cobertura:Coco"/>
+          <label for="checkbox408" id="check_grid_408" class="check408">Coco</label>
+          <br/>
+          <input type="checkbox" id="checkbox409" class="checkbox" value="Cobertura:Chiclete"/>
+          <label for="checkbox409" id="check_grid_409" class="check409">Chiclete</label>
+          <br/>
+          <input type="checkbox" id="checkbox410" class="checkbox" value="Cobertura:Doce de Leite"/>
+          <label for="checkbox410" id="check_grid_410" class="check410">Doce de Leite</label>
+          <br/>
+          <input type="checkbox" id="checkbox411" class="checkbox" value="Cobertura:Abacaxi"/>
+          <label for="checkbox411" id="check_grid_411" class="check411">Abacaxi</label>
+          <br/>
+          <input type="checkbox" id="checkbox412" class="checkbox" value="Cobertura:Limão Galego"/>
+          <label for="checkbox412" id="check_grid_412" class="check412">Limão Galego</label>
+          <br/>
+          <input type="checkbox" id="checkbox413" class="checkbox" value="Cobertura:Amora"/>
+          <label for="checkbox413" id="check_grid_413" class="check413">Amora</label>
+
+      </div>
+      </div>
+
+      <div id="complemento_shake">
+        <p class="estilo_paragrafo" id="res_complemento_shake"></p>
+        <p class="estilo_paragrafo">LIMITE DE 2 COMPLEMENTOS</p>
+        <button class="btns" id="btn_escolha_complemento_shake">Avançar!</button>
+        <h2 class="estilo_titulo">Complementos</h2>
+        <div class="cx_add_complemento_shake">
+          
+          <input type="checkbox" id="checkbox500"  class="checkbox" value="Leite_condensado" />
+          <label for="checkbox500" id="check500" class="check500">Leite condensado</label>
+          <br/>
+
+          <input type="checkbox"  id="checkbox501" class="checkbox"  value="Cr_Nutella" />
+          <label for="checkbox501" id="check501" class="check501">Cr. Nutella</label>
+          <br />
         
+
+          <input type="checkbox" id="checkbox502" class="checkbox" value="Cr_Leite_Ninho" />
+          <label for="checkbox502" id="check502" class="check502">Cr. Leite Ninho</label>
+          <br />
+
+          <input type="checkbox" id="checkbox503" class="checkbox" value="Cr_Morango" />
+          <label for="checkbox503" id="check503" class="check503">Cr. Morango</label>
+          <br />
+
+          <input type="checkbox" id="checkbox504" class="checkbox" value="Cr_Bombom" />
+          <label for="checkbox504" id="check504" class="check504">Cr. Bombom</label>
+          <br />
+
+          <input type="checkbox" id="checkbox505" class="checkbox" value="Cr_Chocobis" />
+          <label for="checkbox505" id="check505" class="check505">Cr. Chocobis</label>
+          <br />
+
+          <input type="checkbox" id="checkbox506" class="checkbox" value="Cr_Pacoca" />
+          <label for="checkbox506" id="check506" class="check506">Cr. Paçoca</label>
+          <br />
+
+          <input type="checkbox" id="checkbox507" class="checkbox" value="Cr_Ovo_Maltine"/>
+          <label for="checkbox507" id="check507" class="check507">Cr. Ovo Maltine</label>
+          <br />
+
+          <input type="checkbox" id="checkbox508" class="checkbox" value="Confete" />
+          <label for="checkbox508" id="check508" class="check508">Confete</label>
+          <br />
+
+          <input type="checkbox" id="checkbox509" class="checkbox" value="Mini_Chocoball" />
+          <label for="checkbox509" id="check509" class="check509">Mini Chocoball</label>
+          <br />
+
+          <input type="checkbox" id="checkbox510" class="checkbox" value="ChocoBall" />
+          <label for="checkbox510" id="check510" class="check510">ChocoBall</label>
+          <br />
+
+          <input type="checkbox" id="checkbox511" class="checkbox" value="Power_Ball" />
+          <label for="checkbox511" id="check511" class="check511">Power Ball</label>
+          <br />
+
+          <input type="checkbox" id="checkbox512" class="checkbox" value="Sucrilhos" />
+          <label for="checkbox512" id="check512" class="check512">Sucrilhos</label>
+          <br />
+
+          <input type="checkbox" id="checkbox513" class="checkbox" value="Leite_em_Po" />
+          <label for="checkbox513" id="check513" class="check513">Leite em Po</label>
+          <br />
+
+          <input type="checkbox" id="checkbox514" class="checkbox" value="Ouro_Branco" />
+          <label for="checkbox514" id="check514" class="check514">Ouro Branco</label>
+          <br />
+
+          <input type="checkbox" id="checkbox515" class="checkbox" value="Amendoin" />
+          <label for="checkbox515" id="check515" class="check515">Amendoin</label>
+          <br />
+
+          <input type="checkbox" id="checkbox516" class="checkbox" value="Farofa_de_Paçoca" />
+          <label for="checkbox516" id="check516" class="check516">Farofa de Paçoca</label> 
+          <br/>
+
+          <input type="checkbox" id="checkbox517" class="checkbox" value="Granola"/>
+          <label for="checkbox517" id="check517" class="check517">Granola</label>
+          <br/>
+
+          <input type="checkbox" id="checkbox518" class="checkbox" value="Bis_Preto"/>
+          <label for="checkbox518" id="check518" class="check518">Bis Preto</label>
+          <br />
+
+          <input type="checkbox" id="checkbox519" class="checkbox" value="Bis_Branco"/>
+          <label for="checkbox519" id="check519" class="check519">Bis Branco</label>
+          <br />
+
+          <input type="checkbox" id="checkbox520" class="checkbox" value="Paçoca_com_Chocolate"/>
+          <label for="checkbox520" id="check520" class="check520">Paçoca com Chocolate</label>
+          <br />
+
+          <input type="checkbox" id="checkbox521" class="checkbox" value="Paçoca_com_Chocolate_Branco"/>
+          <label for="checkbox521" id="check521" class="check521">Paçoca com Chocolate Branco</label>
+          <br />
+
+          <input type="checkbox" id="checkbox522" class="checkbox" value="Ovo_Maltine"/>
+          <label for="checkbox522" id="check522" class="check522">Ovo Maltine</label>
+          <br />
+
+          <input type="checkbox" id="checkbox523" class="checkbox" value="Canudos"/>
+          <label for="checkbox523" id="check_grid" class="check523">Canudos</label>
+          <br />
+
+          <input type="checkbox" id="checkbox524" class="checkbox" value="Marshmallows"/>
+          <label for="checkbox524" id="check524" class="check524">Marshmallows</label>
+          <br />
+
+          <input type="checkbox" id="checkbox525" class="checkbox" value="Gotas_de_Chocolate"/>
+          <label for="checkbox525" id="check525" class="check525">Gotas de Chocolate</label>
+
+        </div>
+      </div>
+
+      <div id="adicionais_salada">
+        <button class="btns" id="btn_escolha_frutas">Avançar!</button>
+        <h2 class="estilo_titulo">FRUTAS</h2>
+        <div class="cx_add_salada">
+          <input type="checkbox" id="checkbox200" class="checkbox" value="Fruta: Morango"/>
+          <label for="checkbox200" id="check_grid_200" class="check200">Morango</label>
+          <br/>
+        
+          <input type="checkbox" id="checkbox201" class="checkbox" value="Fruta: Banana"/>
+          <label for="checkbox201" id="check_grid_201" class="check201">Banana</label>
+          <br/>
+          <input type="checkbox" id="checkbox202" class="checkbox" value="Fruta: Kiwi" />
+          <label for="checkbox202" id="check_grid_202" class="check202">Kiwi</label>
+          <br/>
+          <input type="checkbox" id="checkbox203" class="checkbox" value="Fruta: Abacaxi"/>
+          <label for="checkbox203" id="check_grid_203" class="check203">Abacaxi</label>
+          <br/>
+          <input type="checkbox" id="checkbox204" class="checkbox" value="Fruta: Manga"/>
+          <label for="checkbox204" id="check_grid_204" class="check204">Manga</label>
+          <br/>
+          <input type="checkbox" id="checkbox205" class="checkbox" value="Fruta: Uva_Verde"/>
+          <label for="checkbox205" id="check_grid_205" class="check205">Uva Verde</label>
+          <br/>
+          <input type="checkbox" id="checkbox206" class="checkbox" value="Fruta: Uva_Roxa"/>
+          <label for="checkbox206" id="check_grid_206" class="check206">Uva Roxa</label>
+
+      </div>
+
+
+      </div>
+
+      <div id="complemento_salada">
+        <p class="estilo_paragrafo">&#9888 ATENÇÃO &#9888 </p>
+        <p class="estilo_paragrafo">Adicionais R$2,00 cada - Pote de 50ml</p>
+        <p class="estilo_paragrafo">Os complementos são enviados a parte</p>
+        <button class="btns" id="btn_escolha_complemento_frutas">Avançar!</button>
+        <h2 class="estilo_titulo">ADICIONAIS</h2>
+
+        <div class="cx_add_complemento_salada">
+          
+          <input type="checkbox" name="checkbox" id="checkbox207" class="checkbox" value="Leite_condensado"/>
+          <label for="checkbox207" id="check_grid_207" class="check207">Leite condensado</label>
+          <br/>
+          <input type="checkbox" name="checkbox" id="checkbox208" class="checkbox" value="Calda_Avela"/>
+          <label for="checkbox208" id="check_grid_208" class="check208">Calda de Avelã</label>
+          <br/>
+          
+          <input type="checkbox" name="checkbox" id="checkbox209" class="checkbox" value="Creme_Nutella" />
+          <label for="checkbox209" id="check_grid_209" class="check209">Creme de Nutella</label>
+          <br/>
+          
+          <input type="checkbox" name="checkbox" id="checkbox210" class="checkbox" value="Cr_Leite_Ninho"/>
+          <label for="checkbox210" id="check_grid_210" class="check210">Creme de Leite Ninho</label>
+          <br/>
+          <input type="checkbox" name="checkbox" id="checkbox211" class="checkbox" value="Granola"/>
+          <label for="checkbox211" id="check_grid_211" class="check211">Granola</label>
+          <br/>
+          <input type="checkbox" name="checkbox" id="checkbox212" class="checkbox" value="Amendoin"/>
+          <label for="checkbox212" id="check_grid_212" class="check212">Amendoin</label>
+          <br/>
+          <input type="checkbox" name="checkbox" id="checkbox213" class="checkbox" value="Leite_em_Po"/>
+          <label for="checkbox213" id="check_grid_213" class="check213">Leite em Pó</label>
+          <br/>
+          <input type="checkbox" name="checkbox" id="checkbox214" class="checkbox" value="Farofa_de_Paçoca"/>
+          <label for="checkbox214" id="check_grid_214" class="check214"> Farofa de Paçoca</label>
+          <br/>
+          <input type="checkbox" name="checkbox" id="checkbox215" class="checkbox" value="Sucrilhos"/>
+          <label for="checkbox215" id="check_grid_215" class="check215">Sucrilhos</label>
+          <br/>
+        </div>
+      </div>
+
+      <div class="sujestao" id="mensagem">
+        <h3 class="estilo_titulo">Deixe a sua Sujestão?</h3>
+        <textarea name="campo" id="campo" cols="35" rows="5"></textarea>
+        <p class="estilo_paragrafo">Se não houver pode deixar em branco</p>
+        <input value="AVANÇAR!!" class="btns" type="submit" id="btn_sujestao" title="Ex: coloque o recheio apenas em cima">
+        <span id="contador">0/30 caracteres &#9993</span>
+      </div>
+
+      <div id="final">
+        <h2>Resumo do Pedido</h2>
+        <h5>LEMBRE DE NOS ENVIAR O PEDIDO PELO WHATSS-APP</h5>
+        <button class="btns" id="imprimir">Ir para pagamento</button>
+        
+        <div class="seus_dados">
+          <h2>Seus dados:</h2>
+          <ul>
+            <li id="res_nome"></li>
+            <li id="res_end"></li>
+            <li id="res_end2"></li>
+            <li id="res_regiao"></li>
+          </ul>
+        </div>
+        <h2>Seu carrinho:</h2>
+
+        <div id="carrinho"></div>
+        <h5>CANCELAR PEDIDO? CLIQUE NO BOTÃO ABAIXO!</h5>
+        <button class="btns" id="home_page">Cancelar Pedido &#10060</button>
+
+       <!-- <p id="respd"></p><span id="resads"></span>
+        <h4>Preferencia de montagem cliente:</h4>
+        <p id="montar"></p>
+        <p id="listaitem"></p>-->
+
+      </div>
+
+      <div id="agradece">
+        <h1 class="vlt_sempre">Volte Sempre!</h1>
+        <div class="vlt_grid">
+          <img class="img_loja" src="imagens/frente-loja.png" alt="frente-loja.png">
+          <div class="vlt_txt">
+            <p>"O Senhor é meu Pastor e nada me faltará"</p>
+            <p>Salmos 23,1</p>
+          </div>
+        </div>
+        <button class="btns" id="voltar_inicio">Atualizar a pagina</button>
+      </div>
+
+      <div class="pagamento" id="pagamento">
+        <h1 class="estilo_titulo" >Forma de Pagamento</h1>
+        <h4 id="valor_pagamentos"></h4>
+
+        <div class="grid_pgto" id="pgto">
+          <button id="btn_pix">PIX</button>
+          <button id="btn_cartao">CARTÃO</button>
+          <button id="btn_dinheiro">DINHEIRO</button>
+        </div>
+
+        <div class="res_pix" id="res_pix">
+          <h3>PIX selecionado &#128242</h3>
+          <h5 onclick="copiarCnpj()" class="cliqueaqui">Wanderlei Junior chave Pix: CNPJ:43227642000130</h5>
+          <!--<button class="btns" id="copiar_chave">Copiar CNPJ!</button>-->
+
+          <canvas id="qrcode"></canvas>
+          <div class="res_qrcode"><textarea id="pixCopyPaste" rows="1" cols="33" readonly></textarea></div>
+          <div class="res_btn_pix">
+            <button class="btns" id="env_pix">Enviar Whatsapp <img class="img_whats" src="imagens/whatsapp.png" alt="img-whats"></button>
+            <button class="btns" onclick="copyToClipboard()">Copiar Qrcode</button>
+          </div>
+          <p class="alerta_pgto">&#9888 ENVIAR COMPROVANTE DO PIX VIA WHATSAPP &#9888</p>
+
+        
+        </div>
+
+        <div class="res_cartao" id="res_cartao">
+          <h3>CARTÃO selecionado &#128179</h3>
+          <p>Tio Chico Agradece a preferencia! &#129309</p>
+          <p>Deus Abençoe! &#128591</p>
+          <button class="btns" id="env_cartao" >Enviar - Whats-app</button>
+        </div>
+
+        <ul>
+          <li>Escolha entre PIX - CARTÃO - DINHEIRO</li>
+          <li>Seu Whats-app será aberto com o pedido</li>
+          <li>Volte para o site para copiar seu Qrcode </li>
+        </ul>
+
+
+
+
+        <div class="res_dinheiro" id="res_dinheiro">
+          <h3>DINHEIRO selecionado &#128181</h3>
+          <label for="troco">Informe se precisa de troco ou não! &#129300</label>
+          <input type="text" name="troco" id="troco" placeholder="Exemplo: Troco para 100">
+          
+          <input class="btns" id="env_dinheiro" type="submit" value="Enviar - Whats-app">
+          <p>Tio Chico Agradece a preferencia! &#129309</p>
+          <p>Deus Abençoe! &#128591</p>
+        </div>
+
+
+      </div>
+
+      <div id="informativo">
+        <h2 class="estilo_titulo">Precisa de colherzinha?</h2>
+        <div class="grid_colher">
+          <button id="colher_sim">&#129348-SIM</button>
+          <button id="colher_nao">&#10060-NÃO</button>
+        </div>
+
+      </div>
+
+      <div id="pergunta_mult">
+
+        <div class="pergunta_mult">
+          <h2 class="estilo_titulo" id="linha1">NOVIDADE!</h2>
+          <p class="estilo_paragrafo" id="linha2">Agora você pode montar + de um Açai igual</p>
+          <p class="estilo_paragrafo" id="linha3">Para agilizar o processo de montagem</p>
+          <p class="estilo_paragrafo" id="linha4">Gostaria de duplicar este?</p>
+          <button class="btns_mult_sim" id="ir_mult">SIM!</button>
+          <br>
+          <button class="btns_mult_nao" id="negar_mult">NÃO!</button>
+        </div>
+
+      </div>
+
+      <div class="multiplicador" id="multiplicador" style="display: none;">
+        <p class="estilo_paragrafo" id="mont_paragrafo">QUANTOS IGUAIS?</p>
+        <button id="mont_dois">2</button>
+        <button id="mont_tres">3</button>
+        <button id="mont_quatro">4</button>
+        <button id="mont_cinco">5</button>
+
+      </div>
+
+      <div class="app_fora">
+        <h1 class="estilo_titulo"><span id="open_close"></span></h1>
+        <p class="estilo_paragrafo" id="disponibilidade">ATENDIMENTO APENAS NA LOJA</p>
+
+        <div class="carousel-container">
+          <div class="carousel">
+            <img src="imagens/copo300ml.jpg" alt="Imagem 1">
+            <img src="imagens/copo400ml.jpg" alt="Imagem 2">
+            <img src="imagens/copo500ml.jpg" alt="Imagem 3">
+            <img src="imagens/copo700ml.jpg" alt="Imagem 4">
+            <img src="imagens/marmita750ml.jpg" alt="Imagem 5">
+            <img src="imagens/marmita500ml.jpg" alt="Imagem 6">
+            <img src="imagens/marmita1200ml.jpg" alt="Imagem 7">
+            <img src="imagens/frente-loja.png" alt="Imagem 8">
+          </div>
+
+
+      </div>
+
+      </div>
+
+      <div id="vazio"></div>
+
+      <footer id="rodape">
+        <a href="https://forms.gle/YZJaCc1gvABdyAbk7" target="_blank" rel="noopener noreferrer">&#128483 Realize à nossa Pesquisa de Satisfação &#128483</a>
+        <div>
+          
+          <!--<p>
+            Taxa de entrega é cobrada de acordo com cada entrega, o valor minimo é R$2,00.
+          </p>-->
+          <p>Tempo médio para entrega é sempre estabelecido a cada pedido.</p>
+          <p>
+            Massas e açais: densidade de aproximadamente 475g/litro logo o volume
+            é maior que o peso, então não podemos dizer que 1 litro é equivalente
+            a 1kg
+          </p>
+        </div>
+      </footer>
     </div>
+
+
+
     <script src="script.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/1.4.1/html2canvas.min.js"></script>
 
-</body>
-</html>
+  </body>
 
+</html>
