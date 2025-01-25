@@ -108,17 +108,15 @@
           </div>
         </div>
 
-
-
         <div class="category" id="salada">
           <h4 class="estilo_titulo">SALADA DE FRUTAS</h4>
           <p class="estilo_paragrafo">Selecione o copo desejado!</p>
           <select id="meu_select_salada" onchange="exibirSalada()" class="select_salada">
   
-          <option value="300ml">COPO 300ml R$ 9,00</option>
-          <option value="400ml">COPO 400ml R$ 12,00</option>
-          <option value="500ml">COPO 500ml R$ 14,00</option>
-          <option value="700ml">COPO 700ml R$ 18,00</option>  
+          <option value="300ml">COPO 300ml R$ 10,00</option>
+          <option value="400ml">COPO 400ml R$ 13,00</option>
+          <option value="500ml">COPO 500ml R$ 15,00</option>
+          <option value="700ml">COPO 700ml R$ 20,00</option>  
         </select>
 
         <button class="btns" id="btn_salada">Montar Copo!</button>  
@@ -129,7 +127,9 @@
           <p class="estilo_paragrafo">KIWI</p>
           <p class="estilo_paragrafo">ABACAXI</p>
           <p class="estilo_paragrafo">MANGA</p>
+          
           <p class="estilo_paragrafo">UVA VERDE</p>
+          
           <p class="estilo_paragrafo">UVA ROXA</p>
 
         </div>
@@ -141,15 +141,15 @@
           <p class="estilo_paragrafo">Selecione o copo desejado!</p>
           <select id="meu_select_shake" onchange="exibirShake()" class="select_shake">
   
-          <option value="T300ml">Tradicional 300ml R$ 10,00</option>
-          <option value="T400ml">Tradicional 400ml R$ 12,00</option>
-          <option value="T500ml">Tradicional 500ml R$ 14,00</option>
+          <option value="T300ml">Tradicional 300ml R$ 11,00</option>
+          <option value="T400ml">Tradicional 400ml R$ 13,00</option>
+          <option value="T500ml">Tradicional 500ml R$ 15,00</option>
           <option value="T700ml">Tradicional 700ml R$ 18,00</option>
 
-          <option value="S300ml">Especial 300ml R$ 12,00</option>
-          <option value="S400ml">Especial 400ml R$ 14,00</option>
-          <option value="S500ml">Especial 500ml R$ 16,00</option>
-          <option value="S700ml">Especial 700ml R$ 20,00</option>
+          <option value="S300ml">Especial 300ml R$ 13,00</option>
+          <option value="S400ml">Especial 400ml R$ 15,00</option>
+          <option value="S500ml">Especial 500ml R$ 18,00</option>
+          <option value="S700ml">Especial 700ml R$ 22,00</option>
 
         </select>
 
@@ -206,10 +206,10 @@
               onchange="exibirTradCopos()"
               class="select_trad_copo"
             >
-              <option value="300ml">300ml R$ 9,00</option>
-              <option value="400ml">400ml R$ 12,00</option>
-              <option value="500ml">500ml R$ 15,00</option>
-              <option value="700ml">700ml R$ 24,00</option>
+              <option value="300ml">300ml R$ 14,00</option>
+              <option value="400ml">400ml R$ 17,00</option>
+              <option value="500ml">500ml R$ 20,00</option>
+              <option value="700ml">700ml R$ 30,00</option>
             </select>
             <button class="btns" id="btn_trad_copo">Quero esse copo!</button>
             <div id="imagem_trad_copo">
@@ -224,9 +224,9 @@
               onchange="exibirTradMarmitas()"
               class="select_trad_marmita"
             >
-              <option value="500ml">500ml R$ 16,00</option>
-              <option value="750ml">750ml R$ 24,00</option>
-              <option value="1200ml">1200ml R$ 34,00</option>
+              <option value="500ml">500ml R$ 22,00</option>
+              <option value="750ml">750ml R$ 32,00</option>
+              <option value="1200ml">1200ml R$ 45,00</option>
             </select>
             <button class="btns" id="btn_trad_marmita">Quero essa marmita!</button>
             <div id="imagem_trad_marmita">
@@ -269,10 +269,10 @@
               onchange="exibirCopos()"
               class="select_copo"
             >
-              <option value="300ml">300ml R$ 13,00</option>
-              <option value="400ml">400ml R$ 16,00</option>
-              <option value="500ml">500ml R$ 18,00</option>
-              <option value="700ml">700ml R$ 28,00</option>
+              <option value="300ml">300ml R$ 14,00</option>
+              <option value="400ml">400ml R$ 17,00</option>
+              <option value="500ml">500ml R$ 20,00</option>
+              <option value="700ml">700ml R$ 30,00</option>
             </select>
             <button class="btns" id="btn_copo">MONTAR!!</button>
             <div id="imagem_copo">
@@ -287,9 +287,9 @@
               onchange="exibirMarmitas()"
               class="select_marmita"
             >
-              <option value="500ml">500ml R$ 20,00</option>
-              <option value="750ml">750ml R$ 30,00</option>
-              <option value="1200ml">1200ml R$ 40,00</option>
+              <option value="500ml">500ml R$ 22,00</option>
+              <option value="750ml">750ml R$ 32,00</option>
+              <option value="1200ml">1200ml R$ 45,00</option>
             </select>
             <button class="btns" id="btn_marmita">MONTAR!!</button>
             <div id="imagem_marmita">
@@ -382,6 +382,12 @@
       </div>
 
       <div id="adicionais">
+
+        <button class="find_titulo" onclick="buscarTitulo('FINIS')">&#128270 FINIS</button>
+        <button class="find_titulo" onclick="buscarTitulo('FRUTAS')">&#128270 FRUTAS</button>
+        <button class="find_titulo" onclick="buscarTitulo('COMPLEMENTOS')">&#128270 DOCES</button>
+        <button class="find_titulo" onclick="buscarTitulo('CALDAS')">&#128270 CALDAS</button>
+
         <p id="resadicao" class="estilo_paragrafo"></p>
         <div class="btn_escolha">
           <button class="btns" id="btn_valores">Avançar!</button>
@@ -389,7 +395,15 @@
         </div>
         <div class="pesquisa">
           <input type="text" id="search-input" placeholder="Buscar adicional na pagina...">
-          <button class="btns" onclick="highlightText()">Localizar</button>
+          <button class="btns" onclick="highlightText()">&#128270 Localizar</button>
+        </div>
+
+        <h3 class="estilo_titulo">NOVIDADE!</h3>
+        <div class="cx_itens">
+          <input type="text" id="item25" value="BOMBOM OREO" readonly>
+          <input type="number" id="quantidade25" value="0" readonly>
+          <button id="quantidade25-plus" onclick="alterarQuantidade(1, 'quantidade25')">&#10133</button>
+          <button id="quantidade25-minus" onclick="alterarQuantidade(-1, 'quantidade25')">&#10134</button>
         </div>
 
         <h3 class="estilo_titulo">FRUTAS</h3>
@@ -435,6 +449,11 @@
           <button onclick="alterarQuantidade(1, 'quantidade7')">&#10133</button>
           <button onclick="alterarQuantidade(-1, 'quantidade7')">&#10134</button>
         </div>  
+        
+        <button class="find_titulo" onclick="buscarTitulo('FINIS')">&#128270 FINIS</button>
+        <button class="find_titulo" onclick="buscarTitulo('FRUTAS')">&#128270 FRUTAS</button>
+        <button class="find_titulo" onclick="buscarTitulo('COMPLEMENTOS')">&#128270 DOCES</button>
+        <button class="find_titulo" onclick="buscarTitulo('CALDAS')">&#128270 CALDAS</button>
 
         <h3 class="estilo_titulo">CALDAS</h3>
         <div class="cx_itens">
@@ -485,6 +504,11 @@
           <button onclick="alterarQuantidade(1, 'quantidade15')">&#10133</button>
           <button onclick="alterarQuantidade(-1, 'quantidade15')">&#10134</button>
         </div>
+        
+        <button class="find_titulo" onclick="buscarTitulo('FINIS')">&#128270 FINIS</button>
+        <button class="find_titulo" onclick="buscarTitulo('FRUTAS')">&#128270 FRUTAS</button>
+        <button class="find_titulo" onclick="buscarTitulo('COMPLEMENTOS')">&#128270 DOCES</button>
+        <button class="find_titulo" onclick="buscarTitulo('CALDAS')">&#128270 CALDAS</button>
 
         <h3 class="estilo_titulo">COMPLEMENTOS</h3>
         <div class="cx_itens">
@@ -541,12 +565,7 @@
           <button onclick="alterarQuantidade(1, 'quantidade24')">&#10133</button>
           <button onclick="alterarQuantidade(-1, 'quantidade24')">&#10134</button>
         </div>
-        <div id="bloquear" class="cx_itens">
-          <input type="text" id="item25" value="Baton Branco" readonly>
-          <input type="number" id="quantidade25" value="0" readonly>
-          <button onclick="alterarQuantidade(1, 'quantidade25')">&#10133</button>
-          <button onclick="alterarQuantidade(-1, 'quantidade25')">&#10134</button>
-        </div>
+
         <div class="cx_itens">
           <input type="text" id="item26" value="Granola" readonly>
           <input type="number" id="quantidade26" value="0" readonly>
@@ -607,7 +626,7 @@
           <button onclick="alterarQuantidade(1, 'quantidade35')">&#10133</button>
           <button onclick="alterarQuantidade(-1, 'quantidade35')">&#10134</button>
         </div>
-        <div class="cx_itens">
+        <div id="bloquear" class="cx_itens">
           <input type="text" id="item36" value="Prestígio" readonly>
           <input type="number" id="quantidade36" value="0" readonly>
           <button onclick="alterarQuantidade(1, 'quantidade36')">&#10133</button>
@@ -619,6 +638,96 @@
           <button onclick="alterarQuantidade(1, 'quantidade37')">&#10133</button>
           <button onclick="alterarQuantidade(-1, 'quantidade37')">&#10134</button>
         </div> 
+        
+        <button class="find_titulo" onclick="buscarTitulo('FINIS')">&#128270 FINIS</button>
+        <button class="find_titulo" onclick="buscarTitulo('FRUTAS')">&#128270 FRUTAS</button>
+        <button class="find_titulo" onclick="buscarTitulo('COMPLEMENTOS')">&#128270 DOCES</button>
+        <button class="find_titulo" onclick="buscarTitulo('CALDAS')">&#128270 CALDAS</button>
+
+        <h3 class="estilo_titulo">FINIS</h3>
+        <div class="cx_itens">
+          <input type="text" id="item38" value="Fini Bananas" readonly>
+          <input type="number" id="quantidade38" value="0" readonly>
+          <button onclick="alterarQuantidade(1, 'quantidade38')">&#10133</button>
+          <button onclick="alterarQuantidade(-1, 'quantidade38')">&#10134</button>
+        </div>
+
+        <div class="cx_itens">
+          <input type="text" id="item39" value="Fini Ursinhos" readonly>
+          <input type="number" id="quantidade39" value="0" readonly>
+          <button onclick="alterarQuantidade(1, 'quantidade39')">&#10133</button>
+          <button onclick="alterarQuantidade(-1, 'quantidade39')">&#10134</button>
+        </div>
+
+        <div class="cx_itens">
+          <input type="text" id="item40" value="Fini Dentaduras" readonly>
+          <input type="number" id="quantidade40" value="0" readonly>
+          <button onclick="alterarQuantidade(1, 'quantidade40')">&#10133</button>
+          <button onclick="alterarQuantidade(-1, 'quantidade40')">&#10134</button>
+        </div>
+
+        <div class="cx_itens">
+          <input type="text" id="item41" value="Fini Minhocas" readonly>
+          <input type="number" id="quantidade41" value="0" readonly>
+          <button onclick="alterarQuantidade(1, 'quantidade41')">&#10133</button>
+          <button onclick="alterarQuantidade(-1, 'quantidade41')">&#10134</button>
+        </div>
+
+        <div class="cx_itens">
+          <input type="text" id="item42" value="Fini Beijos" readonly>
+          <input type="number" id="quantidade42" value="0" readonly>
+          <button onclick="alterarQuantidade(1, 'quantidade42')">&#10133</button>
+          <button onclick="alterarQuantidade(-1, 'quantidade42')">&#10134</button>
+        </div>
+
+        <div class="cx_itens">
+          <input type="text" id="item43" value="Fini Amoras" readonly>
+          <input type="number" id="quantidade43" value="0" readonly>
+          <button onclick="alterarQuantidade(1, 'quantidade43')">&#10133</button>
+          <button onclick="alterarQuantidade(-1, 'quantidade43')">&#10134</button>
+        </div>
+
+        <div class="cx_itens">
+          <input type="text" id="item44" value="Fini Az. Morango Nata" readonly>
+          <input type="number" id="quantidade44" value="0" readonly>
+          <button onclick="alterarQuantidade(1, 'quantidade44')">&#10133</button>
+          <button onclick="alterarQuantidade(-1, 'quantidade44')">&#10134</button>
+        </div>
+
+        <div class="cx_itens">
+          <input type="text" id="item45" value="Fini Tubes Twister" readonly>
+          <input type="number" id="quantidade45" value="0" readonly>
+          <button onclick="alterarQuantidade(1, 'quantidade45')">&#10133</button>
+          <button onclick="alterarQuantidade(-1, 'quantidade45')">&#10134</button>
+        </div>
+
+        <div class="cx_itens">
+          <input type="text" id="item46" value="Fini Tubes P. Ligua" readonly>
+          <input type="number" id="quantidade46" value="0" readonly>
+          <button onclick="alterarQuantidade(1, 'quantidade46')">&#10133</button>
+          <button onclick="alterarQuantidade(-1, 'quantidade46')">&#10134</button>
+        </div>
+
+        <div class="cx_itens">
+          <input type="text" id="item47" value="Fini Az. Uva" readonly>
+          <input type="number" id="quantidade47" value="0" readonly>
+          <button onclick="alterarQuantidade(1, 'quantidade47')">&#10133</button>
+          <button onclick="alterarQuantidade(-1, 'quantidade47')">&#10134</button>
+        </div>
+
+        <div class="cx_itens">
+          <input type="text" id="item48" value="Fini Az. Morango Laranja" readonly>
+          <input type="number" id="quantidade48" value="0" readonly>
+          <button onclick="alterarQuantidade(1, 'quantidade48')">&#10133</button>
+          <button onclick="alterarQuantidade(-1, 'quantidade48')">&#10134</button>
+        </div>
+
+        <div class="cx_itens">
+          <input type="text" id="item49" value="Fini Az. Silvestres Nata" readonly>
+          <input type="number" id="quantidade49" value="0" readonly>
+          <button onclick="alterarQuantidade(1, 'quantidade49')">&#10133</button>
+          <button onclick="alterarQuantidade(-1, 'quantidade49')">&#10134</button>
+        </div>
       </div>
 
       <div class="sabor_trad" id="sabor_trad">
@@ -898,6 +1007,7 @@
 
       <div id="adicionais_salada">
         <button class="btns" id="btn_escolha_frutas">Avançar!</button>
+
         <h2 class="estilo_titulo">FRUTAS</h2>
         <div class="cx_add_salada">
           <input type="checkbox" id="checkbox200" class="checkbox" value="Fruta: Morango"/>
@@ -910,12 +1020,15 @@
           <input type="checkbox" id="checkbox202" class="checkbox" value="Fruta: Kiwi" />
           <label for="checkbox202" id="check_grid_202" class="check202">Kiwi</label>
           <br/>
+          
           <input type="checkbox" id="checkbox203" class="checkbox" value="Fruta: Abacaxi"/>
           <label for="checkbox203" id="check_grid_203" class="check203">Abacaxi</label>
           <br/>
+          
           <input type="checkbox" id="checkbox204" class="checkbox" value="Fruta: Manga"/>
           <label for="checkbox204" id="check_grid_204" class="check204">Manga</label>
           <br/>
+          
           <input type="checkbox" id="checkbox205" class="checkbox" value="Fruta: Uva_Verde"/>
           <label for="checkbox205" id="check_grid_205" class="check205">Uva Verde</label>
           <br/>
@@ -929,7 +1042,7 @@
 
       <div id="complemento_salada">
         <p class="estilo_paragrafo">&#9888 ATENÇÃO &#9888 </p>
-        <p class="estilo_paragrafo">Adicionais R$2,00 cada - Pote de 50ml</p>
+        <p class="estilo_paragrafo">Adicionais R$3,00 cada - Pote de 50ml</p>
         <p class="estilo_paragrafo">Os complementos são enviados a parte</p>
         <button class="btns" id="btn_escolha_complemento_frutas">Avançar!</button>
         <h2 class="estilo_titulo">ADICIONAIS</h2>
@@ -949,7 +1062,7 @@
           
           <input type="checkbox" name="checkbox" id="checkbox210" class="checkbox" value="Cr_Leite_Ninho"/>
           <label for="checkbox210" id="check_grid_210" class="check210">Creme de Leite Ninho</label>
-          <br/>
+          <br/> 
           <input type="checkbox" name="checkbox" id="checkbox211" class="checkbox" value="Granola"/>
           <label for="checkbox211" id="check_grid_211" class="check211">Granola</label>
           <br/>
